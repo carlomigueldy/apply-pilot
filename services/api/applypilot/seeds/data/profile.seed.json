@@ -1,0 +1,303 @@
+{
+  "user": {
+    "id": "a0000000-0000-4000-8000-000000000001",
+    "name": "Carlo Rivera",
+    "email": "demo@applypilot.dev",
+    "timezone": "Asia/Manila",
+    "target_salary_min_usd": 5500,
+    "target_salary_max_usd": 7500,
+    "remote_preference": "remote_only",
+    "preferred_tone": "warm_professional"
+  },
+  "profile_items": [
+    {
+      "id": "b0000000-0000-4000-8000-000000000001",
+      "type": "role",
+      "title": "Senior Software Engineer at Rollup Labs",
+      "body": "At Rollup Labs I served as a Senior Software Engineer on the core blockchain infrastructure team, building TypeScript and Solidity-based systems that powered an Ethereum Layer-2 rollup. I led development of the sequencer dashboard (Next.js, React, Tailwind CSS) and co-designed our Postgres-backed state synchronization service (Python/FastAPI, SQLAlchemy, Docker). My work covered the full stack: writing Solidity smart contracts for batch settlement, designing REST APIs in FastAPI with Pydantic validation, and building the React front-end with real-time WebSocket feeds.\n\nKey achievements: reduced transaction throughput latency by 35% by optimizing our Postgres indexing strategy and introducing pgvector for similarity searches on transaction fingerprints. Established a Docker-compose local development environment that onboarded new engineers in under 30 minutes. Mentored two junior engineers on Solidity security patterns.\n\nTech stack: TypeScript, Next.js, React, Python, FastAPI, Solidity, PostgreSQL, pgvector, Docker, GitHub Actions.",
+      "item_metadata": {
+        "company": "Rollup Labs",
+        "start_date": "2023-01",
+        "end_date": "2025-03",
+        "location": "Remote (Manila, PH)",
+        "employment_type": "full_time"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000002",
+      "type": "role",
+      "title": "Senior Blockchain Engineer at Presage Markets",
+      "body": "As Senior Blockchain Engineer at Presage Markets, a decentralized prediction markets protocol on Polygon and Ethereum, I owned the smart contract lifecycle from design through deployment. I wrote and audited Solidity contracts for market creation, liquidity provision, and oracle resolution, deploying and verifying on-chain with Foundry. The backend settlement engine ran on FastAPI (Python 3.12), with SQLAlchemy for Postgres persistence and Celery workers for asynchronous blockchain event indexing. The front-end was a Next.js + React + TypeScript application with wagmi and viem for wallet integration.\n\nI introduced a comprehensive end-to-end test suite using Playwright and pytest, achieving 87% coverage. I also built a real-time analytics pipeline (Postgres + TypeScript ETL) that gave the product team instant visibility into prediction market volumes and user behavior.\n\nTech stack: Solidity, Foundry, Python, FastAPI, SQLAlchemy, PostgreSQL, TypeScript, React, Next.js, wagmi, viem, Docker, Polygon, Ethereum.",
+      "item_metadata": {
+        "company": "Presage Markets",
+        "start_date": "2021-06",
+        "end_date": "2022-12",
+        "location": "Remote (Singapore / Manila)",
+        "employment_type": "full_time"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000003",
+      "type": "role",
+      "title": "Lead Blockchain Engineer at MetaWorld Gaming",
+      "body": "At MetaWorld Gaming I was Lead Blockchain Engineer on a Web3 metaverse title with over 50,000 monthly active players. My responsibilities spanned Solidity smart contracts (ERC-721 NFT items, ERC-20 in-game currency, on-chain governance), a TypeScript/Next.js player marketplace, and a Python/FastAPI backend that bridged Web2 game state to on-chain events via webhooks and a PostgreSQL event store.\n\nI designed and implemented the NFT minting pipeline using Solidity and Foundry, a React-based marketplace UI, and a Docker-orchestrated microservices architecture. Introduced LangChain-based AI moderation for user-generated content that delivered a 30% reduction in moderation costs. Collaborated closely with Unity C# engineers on the game client, exposing a REST API they consumed.\n\nTech stack: Solidity, TypeScript, Next.js, React, Python, FastAPI, PostgreSQL, Docker, LangChain, Unity, ERC-721, ERC-20.",
+      "item_metadata": {
+        "company": "MetaWorld Gaming",
+        "start_date": "2020-03",
+        "end_date": "2021-05",
+        "location": "Remote (Berlin, DE / Manila, PH)",
+        "employment_type": "full_time"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000004",
+      "type": "project",
+      "title": "RAG Document Assistant",
+      "body": "Built a production-ready Retrieval-Augmented Generation (RAG) document assistant using Python, FastAPI, LangGraph, and OpenAI embeddings (1536-dim text-embedding-3-small). The system allows users to upload PDF and Markdown documents, automatically chunks and embeds content into a PostgreSQL + pgvector store, and answers natural-language questions by retrieving semantically relevant passages and passing them to a Claude or GPT-4 language model.\n\nArchitecture highlights: LangGraph for the agent workflow (retrieval node, reranking node, generation node, citation node), FastAPI for the REST API with file uploads, SQLAlchemy + pgvector for vector search, Docker Compose for local dev (Postgres, MinIO, Redis). Achieved sub-300ms retrieval times on 100k-document corpora by combining pgvector cosine search with a keyword ILIKE fallback and custom reranking. Deployed on Railway with automatic scaling.\n\nTech stack: Python 3.12, FastAPI, LangGraph, SQLAlchemy, PostgreSQL, pgvector, Docker, OpenAI API, Anthropic Claude API.",
+      "item_metadata": {
+        "tech_stack": ["Python", "FastAPI", "LangGraph", "PostgreSQL", "pgvector", "Docker", "OpenAI", "Claude"],
+        "status": "shipped",
+        "url": "https://github.com/carlorivera/rag-doc-assistant"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000005",
+      "type": "project",
+      "title": "Agentic Coding Workflow System",
+      "body": "Designed an agentic coding assistant system using LangGraph multi-agent orchestration, Python, and FastAPI. The system coordinates a planner agent, a coder agent, a reviewer agent, and a test-runner agent in a directed acyclic graph. Each node in the LangGraph workflow is a Python function that calls an LLM (OpenAI GPT-4o or Anthropic Claude 3.5 Sonnet) and persists intermediate results to PostgreSQL via SQLAlchemy.\n\nThe API surface is a FastAPI application with Server-Sent Events (SSE) for streaming agent progress to the frontend (React + TypeScript). Integrated Docker-based sandboxed code execution to safely run generated code. Implemented retry and fallback logic at each graph node, with error states accumulated in a shared TypedDict state object — the same pattern used by production LangGraph deployments.\n\nTech stack: Python 3.12, LangGraph, FastAPI, SQLAlchemy, PostgreSQL, Docker, React, TypeScript, OpenAI API, Anthropic Claude API.",
+      "item_metadata": {
+        "tech_stack": ["Python", "LangGraph", "FastAPI", "PostgreSQL", "Docker", "React", "TypeScript"],
+        "status": "shipped",
+        "url": "https://github.com/carlorivera/agentic-coder"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000006",
+      "type": "project",
+      "title": "Web3 Prediction Market MVP",
+      "body": "Solo-built a decentralized prediction market MVP on Ethereum and Polygon in 8 weeks. Smart contracts written in Solidity (Foundry), including a market factory contract, an AMM-style liquidity pool, and Chainlink oracle integration for outcome resolution. The front-end is a Next.js + React + TypeScript application using wagmi v2, viem, and RainbowKit for wallet connectivity.\n\nThe off-chain indexer is a Python/FastAPI service that listens to on-chain events via WebSocket connections to Alchemy, persists to PostgreSQL, and exposes a REST API for market data. Achieved $120k TVL (total value locked) within the first two weeks of testnet launch. The Solidity contracts were audited with Slither and Foundry invariant fuzz tests covering 200+ invariants.\n\nTech stack: Solidity, Foundry, Chainlink, TypeScript, Next.js, React, wagmi, viem, Python, FastAPI, PostgreSQL, Docker.",
+      "item_metadata": {
+        "tech_stack": ["Solidity", "Foundry", "TypeScript", "Next.js", "React", "Python", "FastAPI", "PostgreSQL"],
+        "status": "shipped",
+        "url": "https://presage-demo.vercel.app"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000007",
+      "type": "project",
+      "title": "NFT Minting Platform",
+      "body": "Built a full-stack NFT minting platform with allow-list management, batch minting, and on-chain royalty splits (ERC-2981). The Solidity contracts are upgradeable proxies (OpenZeppelin UUPS) deployed on Ethereum mainnet. The minting UI is a Next.js + React + TypeScript application with Tailwind CSS styling and WalletConnect/RainbowKit integration.\n\nThe backend is a FastAPI (Python) service that manages the allow-list Merkle tree, IPFS metadata pinning (via Pinata), and a PostgreSQL database for minting analytics. Implemented a webhook listener for on-chain MintSucceeded events to trigger post-mint actions (email notification, Discord announcement). The project generated $1.2M in primary NFT sales revenue.\n\nTech stack: Solidity, OpenZeppelin, TypeScript, Next.js, React, Tailwind CSS, Python, FastAPI, PostgreSQL, Docker, IPFS, Pinata.",
+      "item_metadata": {
+        "tech_stack": ["Solidity", "TypeScript", "Next.js", "React", "Python", "FastAPI", "PostgreSQL"],
+        "status": "shipped",
+        "url": "https://metaworld-mint.vercel.app"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000008",
+      "type": "project",
+      "title": "Full-Stack Analytics Dashboard",
+      "body": "Designed and built a real-time analytics dashboard for a crypto portfolio management tool. The front-end is a Next.js 14 App Router application with React server components, TypeScript, Recharts for data visualizations, and Tailwind CSS. Data is fetched from a FastAPI (Python) backend that aggregates on-chain data with off-chain portfolio records stored in PostgreSQL.\n\nImplemented incremental static regeneration (ISR) for the main dashboard view and TanStack Query for real-time price updates. The backend uses SQLAlchemy 2.0 ORM with PostgreSQL, Alembic migrations, and Redis caching for expensive aggregation queries. The entire stack is containerized with Docker and deployed on Fly.io with auto-scaling.\n\nTech stack: Next.js 14, React, TypeScript, Tailwind CSS, Recharts, FastAPI, Python, SQLAlchemy, PostgreSQL, Redis, Docker, Alembic.",
+      "item_metadata": {
+        "tech_stack": ["Next.js", "React", "TypeScript", "FastAPI", "Python", "PostgreSQL", "Redis", "Docker"],
+        "status": "shipped",
+        "url": "https://cryptofolio-dash.fly.dev"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000009",
+      "type": "skill",
+      "title": "Frontend Development — Next.js, React, TypeScript",
+      "body": "Expert-level proficiency in modern frontend web development. Core skills: Next.js (App Router, React Server Components, ISR, SSR, streaming), React (hooks, context, suspense, concurrent features), TypeScript (strict mode, generics, mapped types, conditional types, utility types). UI tooling: Tailwind CSS, shadcn/ui, Radix UI primitives, Framer Motion animations. State management: Zustand, TanStack Query (React Query). Testing: Vitest, React Testing Library, Playwright E2E. Build tools: Vite, Turbopack. 5+ years of Next.js and React experience shipping production applications ranging from blockchain dApps to SaaS dashboards with 50k+ daily active users.",
+      "item_metadata": {
+        "category": "frontend",
+        "proficiency": "expert",
+        "years_experience": 5
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000010",
+      "type": "skill",
+      "title": "Backend & API Development — Python, FastAPI, PostgreSQL",
+      "body": "Strong proficiency in backend API development with Python and TypeScript. Python stack: FastAPI, SQLAlchemy 2.0 (synchronous ORM), Pydantic v2, Alembic for migrations, pytest, Celery, asyncio. PostgreSQL expertise: complex multi-join queries, composite indexing strategies, pgvector for vector similarity search, table partitioning, connection pooling with PgBouncer, JSONB operations. TypeScript backend: Node.js, tRPC, Prisma, Drizzle ORM. Infrastructure: Docker, Docker Compose, Kubernetes basics, GitHub Actions CI/CD. API patterns: REST, WebSockets, Server-Sent Events (SSE), GraphQL. 4+ years building production FastAPI services serving 100k+ daily active users.",
+      "item_metadata": {
+        "category": "backend",
+        "proficiency": "expert",
+        "years_experience": 4
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000011",
+      "type": "skill",
+      "title": "Blockchain & Web3 Development — Solidity, Ethereum",
+      "body": "Deep expertise in Ethereum-compatible blockchain development. Solidity proficiency: ERC-20, ERC-721, ERC-1155, ERC-2981, upgradeable proxies (UUPS, Transparent Proxy), Gnosis Safe multisig integrations, Chainlink oracle data feeds, Uniswap V3 integrations, AMM mathematics. Development tools: Foundry (forge, cast, anvil), Hardhat, OpenZeppelin Contracts v5, Slither static analysis, Echidna fuzzing. Web3 frontend: wagmi v2, viem, ethers.js v6, RainbowKit, WalletConnect v2. Chains: Ethereum, Polygon, Optimism, Base, Arbitrum. Audited and deployed 12+ smart contracts to mainnet with combined TVL exceeding $2M.",
+      "item_metadata": {
+        "category": "web3",
+        "proficiency": "expert",
+        "years_experience": 4
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000012",
+      "type": "skill",
+      "title": "AI/ML Engineering — LangGraph, RAG, Embeddings",
+      "body": "Solid engineering skills in AI/ML application development. LLM orchestration: LangChain, LangGraph (multi-node, multi-agent stateful workflows), LlamaIndex for advanced RAG. Embeddings and vector search: OpenAI text-embedding-3-small (1536-dim), Anthropic embeddings, pgvector cosine similarity search, Pinecone, Weaviate. RAG pipeline design: chunking strategies (fixed-size, semantic, recursive), hybrid search (semantic + keyword ILIKE fallback), cross-encoder reranking. Model providers: OpenAI (GPT-4o, GPT-4 Turbo), Anthropic (Claude 3.5 Sonnet, Claude 3 Haiku), Ollama (local Llama 3). Evaluation: RAGAS, custom LLM-judge pipelines. 2+ years building production AI agent systems with FastAPI backends.",
+      "item_metadata": {
+        "category": "ai",
+        "proficiency": "proficient",
+        "years_experience": 2
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000013",
+      "type": "skill",
+      "title": "DevOps & Infrastructure — Docker, GitHub Actions, Cloud",
+      "body": "Comfortable owning infrastructure and CI/CD pipelines for small-to-medium teams. Container orchestration: Docker, Docker Compose, basic Kubernetes (kubectl, Helm chart deployment). Cloud platforms: AWS (EC2, RDS, S3, Lambda, ECS), GCP (Cloud Run, BigQuery), Railway, Fly.io, Vercel, Render. CI/CD: GitHub Actions (multi-stage workflows, matrix builds, reusable workflows, self-hosted runners). Monitoring and observability: Grafana, Prometheus metrics, Datadog APM, Sentry error tracking. Secrets management: AWS Secrets Manager, Doppler, HashiCorp Vault basics. Infrastructure-as-code: Terraform (AWS provider), Pulumi (TypeScript). Database ops: Alembic migration pipelines, RDS backups, read replicas.",
+      "item_metadata": {
+        "category": "devops",
+        "proficiency": "proficient",
+        "years_experience": 4
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000014",
+      "type": "skill",
+      "title": "Technical Leadership & Communication",
+      "body": "Experienced technical lead with strong written and verbal communication skills, optimized for remote-first async-first teams. Comfortable presenting architecture decisions to non-technical stakeholders and translating business requirements into technical specs. Skilled at writing clear technical documentation: ADRs (Architecture Decision Records), PRDs, API reference docs, and runbooks. Experienced leading Agile ceremonies (sprint planning, retrospectives, daily standups, backlog grooming) in a Scrum/Kanban hybrid environment. Mentored 5+ junior and mid-level engineers across multiple teams, focusing on code review practices, Solidity security patterns, and TypeScript type discipline. Fluent in English; conversational Filipino/Tagalog.",
+      "item_metadata": {
+        "category": "soft_skill",
+        "proficiency": "expert",
+        "years_experience": 3
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000015",
+      "type": "achievement",
+      "title": "Launched NFT Collection — $1.2M Primary Sales, Sold Out in 4 Minutes",
+      "body": "Led the end-to-end technical launch of a 10,000-piece generative NFT collection for MetaWorld Gaming that sold out in 4 minutes, generating $1.2M in primary sales revenue. Engineered the Solidity minting contract in Foundry with Merkle-tree allow-list support, gas-optimized batch minting (EIP-2309 consecutive transfer), and on-chain royalties (ERC-2981). Built the React + Next.js minting site that handled 8,000 concurrent users without downtime by pre-rendering with ISR and serving static assets from CloudFront.\n\nPost-launch, the collection sustained a secondary market floor price above 0.15 ETH for 90+ days on OpenSea. This project demonstrated my ability to deliver high-stakes, time-sensitive blockchain product launches under pressure and within strict gas efficiency constraints.",
+      "item_metadata": {
+        "impact": "revenue",
+        "metric": "$1.2M primary sales, 0 downtime during mint"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000016",
+      "type": "achievement",
+      "title": "RAG AI Assistant — 40% Reduction in Support Tickets",
+      "body": "Designed and shipped a RAG-powered AI support assistant using LangGraph, FastAPI, and pgvector that deflected 40% of customer support tickets for a 15,000-user SaaS product. The system ingests product documentation, support ticket history, and changelog entries, chunks and embeds them into PostgreSQL with pgvector (1536-dim OpenAI embeddings), and provides accurate, cited answers via a conversational React interface.\n\nReduced average first-response time from 4 hours to under 2 minutes for tier-1 support queries. This directly saved $8,000/month in support staffing costs and improved NPS by 12 points. The LangGraph pipeline includes a retrieval node (pgvector cosine search + ILIKE keyword fallback), a reranking node (cross-encoder), a generation node (Claude 3.5 Sonnet), and a citation-formatting node.",
+      "item_metadata": {
+        "impact": "cost_savings",
+        "metric": "40% ticket deflection, $8k/month savings, +12 NPS"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000017",
+      "type": "achievement",
+      "title": "Zero-to-One Prediction Market Protocol — $500k TVL in 6 Weeks",
+      "body": "Co-founded and built the full technical stack for a decentralized prediction market protocol from zero to $500k TVL in 6 weeks. Designed the Solidity AMM-based market contracts (Foundry, OpenZeppelin), the Python/FastAPI settlement backend, and the Next.js/React front-end. Integrated Chainlink price feeds for oracle-based market resolution and implemented a real-time event indexer that kept PostgreSQL in sync with on-chain state within 2 seconds of Ethereum finality.\n\nThe protocol attracted 800+ unique wallets in the first month, with peak daily transaction volume of $45k. Achieved this with zero security incidents by combining Foundry invariant fuzz testing (1000+ runs), Slither static analysis, and a manual Solidity audit before mainnet deployment.",
+      "item_metadata": {
+        "impact": "product_launch",
+        "metric": "$500k TVL in 6 weeks, 800+ wallets, zero security incidents"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000018",
+      "type": "achievement",
+      "title": "Engineering Culture & Tooling — 2h Onboarding vs 3-Day Previous",
+      "body": "As the first senior engineer at a seed-stage blockchain startup, established the engineering culture, tooling, and processes for a fully remote team that grew from 2 to 8 engineers in 12 months. Set up the Turborepo monorepo, GitHub Actions CI/CD pipelines, Docker-compose development environments, coding standards (TypeScript strict mode, Python ruff + mypy), pull request review guidelines, and ADR (Architecture Decision Record) processes.\n\nThe standardized setup reduced time-to-first-commit for new engineers from 3 days to 2 hours. Introduced weekly async architecture reviews (written RFC format, not meetings), which allowed the team to scale technical decision-making without synchronous overhead. The culture attracted two senior engineers who cited the documentation quality and process clarity as reasons for accepting the role.",
+      "item_metadata": {
+        "impact": "team_scaling",
+        "metric": "Onboarding 3 days → 2 hours; team 2 → 8 engineers"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000019",
+      "type": "testimonial",
+      "title": "Testimonial — Marcus Chen, CTO at Presage Markets",
+      "body": "\"Carlo is one of the most versatile engineers I have worked with — equally comfortable designing Solidity smart contracts, architecting a Python/FastAPI backend, and shipping a polished Next.js front-end. He has a rare ability to go from whiteboard to production in days, not weeks. His AI engineering work — particularly building our RAG pipeline with LangGraph and pgvector — saved us months of development time and delivered measurable business results within the first quarter.\n\nCarlo is also an exceptional communicator for a fully remote environment. His written ADRs and API documentation consistently ranked as the most-referenced engineering artifacts on our Notion. I would hire him again without hesitation for any senior full-stack or blockchain engineering role that requires both technical depth and product ownership.\"",
+      "item_metadata": {
+        "referee_name": "Marcus Chen",
+        "referee_title": "CTO",
+        "referee_company": "Presage Markets",
+        "relationship": "Direct manager"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000020",
+      "type": "salary",
+      "title": "Salary Expectations & Compensation",
+      "body": "My current target compensation is $5,500–$7,500 USD per month for a senior individual contributor or lead engineer role. I am open to discussing equity (0.25%–1.0% with standard 4-year vest) for early-stage startups. This range reflects 5+ years of experience spanning full-stack TypeScript/React/Next.js, Python/FastAPI backend, Solidity/Web3 smart contracts, and AI/RAG/LangGraph engineering.\n\nI am not interested in roles below $5,000/month USD. For contract or freelance work I charge $70–$100/hour USD depending on scope and duration. I prefer monthly salary payments via Wise or direct bank transfer (GCash/UnionBank). Benefits I value: equipment budget ($2,000+), learning/conference budget ($1,000/year), and health insurance.",
+      "item_metadata": {
+        "min_usd_monthly": 5500,
+        "max_usd_monthly": 7500,
+        "contract_rate_usd_hourly": 85,
+        "currency": "USD",
+        "open_to_equity": true
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000021",
+      "type": "interview_answer",
+      "title": "Tell Me About Yourself",
+      "body": "I am a Senior Software Engineer based in the Philippines with 5+ years of experience building production systems across three domains I genuinely love: full-stack web development (React, Next.js, TypeScript), blockchain and Web3 engineering (Solidity, Ethereum, DeFi protocols), and AI agent development (LangGraph, RAG pipelines, Python/FastAPI). I have worked fully remote my entire career, collaborating with distributed teams across Southeast Asia, Europe, and North America.\n\nMy most recent roles were at blockchain startups where I owned the full technical stack — from Solidity smart contracts deployed to Ethereum mainnet through to the Next.js front-end users interact with daily. I am particularly energized right now by the intersection of AI and Web3: I have built LangGraph-based agents that interact with on-chain data, and RAG systems that help users navigate complex DeFi protocols.\n\nI thrive in environments that trust engineers to own problems end-to-end, communicate asynchronously with clear written documentation, and move fast without sacrificing code quality. I am looking for my next senior or lead role where I can combine deep technical ownership with meaningful product impact.",
+      "item_metadata": {
+        "question_type": "introduction",
+        "tone": "warm_professional"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000022",
+      "type": "interview_answer",
+      "title": "Why Remote Work?",
+      "body": "Remote work has been foundational to my career growth. Working from the Philippines, I have had the opportunity to collaborate with world-class engineering and product teams that I simply would not have had access to in a purely local market. The async-first culture that comes with remote work also aligns perfectly with how I do my best thinking — I prefer deep, uninterrupted focus blocks for complex Solidity security reviews or LangGraph agent design, rather than a fragmented schedule of ad-hoc meetings.\n\nOver five years of fully remote work, I have developed strong written communication habits: thorough PR descriptions, clear technical ADRs, proactive async status updates in Slack, and detailed Notion documentation. I have a dedicated home office with a reliable fiber connection (500Mbps symmetric), a 34-inch ultrawide monitor, and noise-canceling headphones for video calls. I am comfortable with asynchronous collaboration across time zones and typically available for live overlap windows during UTC+8 business hours (09:00–18:00 Manila time), which overlaps with EU afternoons and US mornings.",
+      "item_metadata": {
+        "question_type": "work_style",
+        "tone": "warm_professional"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000023",
+      "type": "interview_answer",
+      "title": "What Is Your Proudest Technical Achievement?",
+      "body": "My proudest technical achievement was shipping a Web3 prediction market protocol from zero to production in 8 weeks as a solo engineer. I designed the Solidity AMM contracts using Foundry and OpenZeppelin, wrote the Python/FastAPI event indexer that synced Ethereum logs to PostgreSQL within 2 seconds of finality, and built the React/Next.js front-end with full wagmi/viem wallet integration.\n\nThe hardest part was designing the on-chain AMM pricing math to be gas-efficient while keeping the fee curves correct under adversarial conditions. I achieved this by combining formal specification with extensive Foundry invariant fuzz tests covering 200+ market invariants. The protocol reached $120k TVL on testnet in 2 weeks and later $500k TVL on mainnet, attracting attention from a well-known DeFi fund. This project demonstrated my ability to operate simultaneously at every layer of the Web3 stack — Solidity, backend, and frontend — while maintaining production-grade quality under time pressure.",
+      "item_metadata": {
+        "question_type": "achievement",
+        "tone": "confident"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000024",
+      "type": "interview_answer",
+      "title": "How Do You Approach Code Quality in Fast-Moving Environments?",
+      "body": "I believe code quality and shipping speed are complementary, not opposites. The right engineering habits and tooling make both achievable simultaneously. My approach: first, strong type systems (TypeScript strict mode, Python mypy + ruff) catch the vast majority of trivial bugs at write-time before review. Second, I write tests for critical paths first — Solidity invariant tests with Foundry, pytest for Python/FastAPI endpoints, Playwright for critical E2E user flows — because test-first design surfaces API problems early and cheaply. Third, I keep PRs small and focused (under 400 lines of diff) so reviews stay fast and meaningful. Fourth, I use ADRs to document significant architectural decisions, which prevents re-litigating the same debate six months later. Fifth, I automate the boring parts: linting, formatting, migration checks, and deployment via GitHub Actions.\n\nThe result across my last three projects: shipped to production with zero critical post-launch bugs and test coverage consistently above 80% on all critical paths. Quality is not a gate at the end — it is a habit built into every step of the development process.",
+      "item_metadata": {
+        "question_type": "process",
+        "tone": "direct"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000025",
+      "type": "preference",
+      "title": "Work Style Preferences",
+      "body": "I strongly prefer fully remote, async-first working environments where engineers are trusted to own their work end-to-end. My ideal setup: 3–5 hours of core overlap per day (UTC+8, roughly 09:00–14:00 Manila time), with the remainder of the day spent in deep async work. I prefer written communication (Slack messages, Notion docs, GitHub PR comments) over synchronous meetings wherever possible — this allows me to do deep work during Manila morning hours and be available for US-West-Coast overlap in the early afternoon.\n\nI thrive in small, high-trust teams (5–20 engineers) at seed-to-Series B stage startups. I am energized by zero-to-one product work: building the first meaningful version of something real rather than maintaining a low-stakes mature product. I prefer codebases that enforce strong type safety (TypeScript strict, Python mypy), use automated CI/CD (GitHub Actions), and have meaningful test coverage (80%+ on critical paths). I am not a good fit for micromanagement, rigid 9-to-5 schedules, or highly process-heavy enterprise environments.",
+      "item_metadata": {
+        "remote": true,
+        "async_first": true,
+        "preferred_team_size": "5-20",
+        "stage": "seed_to_series_b"
+      }
+    },
+    {
+      "id": "b0000000-0000-4000-8000-000000000026",
+      "type": "preference",
+      "title": "Ideal Role Attributes",
+      "body": "The roles where I do my best work share several characteristics: technical ownership (I want to make architectural decisions and own outcomes, not just implement tickets), full-stack scope (I enjoy owning the full vertical from PostgreSQL schema to React UI rather than being narrowly siloed), fast product cycles (biweekly or monthly releases, not 6-month waterfall), and a domain I find intellectually interesting — blockchain/DeFi, AI agent systems, or developer tooling.\n\nI perform best when the engineering culture values written documentation, deep code review, and test coverage over raw ticket velocity. Compensation of $5,500–$7,500/month USD with remote flexibility is essential. I am also attracted to roles that let me grow into a Staff Engineer or Engineering Lead track over 12–18 months, with ownership of significant technical decisions and the ability to mentor junior engineers.",
+      "item_metadata": {
+        "desired_seniority": "senior_to_lead",
+        "domains": ["blockchain", "ai_agents", "developer_tooling"],
+        "open_to_management": false,
+        "growth_track": "staff_engineer"
+      }
+    }
+  ]
+}
