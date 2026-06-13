@@ -1,0 +1,56 @@
+# Build context = repo root for both the api and web image builds.
+# Keep the context lean and never bake host-only artifacts or secrets.
+
+# Node
+**/node_modules
+**/.pnpm-store
+.pnpm-store
+
+# Next.js
+**/.next
+**/out
+apps/web/next-env.d.ts
+
+# Python
+**/.venv
+**/venv
+**/__pycache__
+**/*.py[cod]
+**/.mypy_cache
+**/.ruff_cache
+**/.pytest_cache
+**/*.egg-info
+
+# Build / test artifacts
+**/dist
+**/build
+**/coverage
+**/playwright-report
+**/test-results
+**/.turbo
+
+# VCS & tooling
+.git
+.gitignore
+**/.github
+.wf
+
+# Env & secrets (provided at runtime via compose env_file, not baked in)
+**/.env
+**/.env.*
+
+# Docker (avoid recursive context noise)
+**/Dockerfile
+**/.dockerignore
+infra/docker/docker-compose*.yml
+
+# Editor / OS
+**/.DS_Store
+**/*.log
+**/.idea
+**/.vscode
+
+# Docs (not needed in images).
+# NOTE: README.md is intentionally NOT ignored — services/api/pyproject.toml
+# declares `readme = "README.md"`, so the package build requires it.
+docs

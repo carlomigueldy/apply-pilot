@@ -1,0 +1,28 @@
+{
+  "drafts": [
+    {
+      "id": "d0000000-0000-4000-8000-000000000001",
+      "application_id": "c0000000-0000-4000-8000-000000000001",
+      "type": "cover_email",
+      "title": "Cover Email — Senior Full-Stack Engineer at Verdant Software",
+      "body": "Subject: Senior Full-Stack Engineer — Carlo Rivera\n\nHi Jess,\n\nI came across the Senior Full-Stack Engineer role at Verdant Software and it is a strong match for where I am in my career right now. I am a Senior Software Engineer based in Manila with 5+ years shipping full-stack applications in Next.js, React, TypeScript, and Python/FastAPI — with a strong focus on PostgreSQL data design and Docker-based infrastructure.\n\nMost recently I led platform development at Rollup Labs, where I built a Postgres-backed state synchronization service with SQLAlchemy and a Next.js sequencer dashboard that the ops team relied on daily. I reduced transaction latency by 35% through query and indexing optimizations — the kind of database engineering that scales cleanly from 50 to 500 enterprise customers.\n\nI am drawn to Verdant because I want to apply those skills to a problem with clear real-world impact: helping enterprises understand and reduce their sustainability footprint is genuinely important work. The async-first, distributed team culture also mirrors exactly how I work best.\n\nI have attached my CV. Happy to share code samples or set up a short call at your convenience.\n\nWarm regards,\nCarlo Rivera\ndemo@applypilot.dev",
+      "status": "generated",
+      "version": 1,
+      "tone": "warm_professional",
+      "length": "medium",
+      "review_notes": null
+    },
+    {
+      "id": "d0000000-0000-4000-8000-000000000002",
+      "application_id": "c0000000-0000-4000-8000-000000000001",
+      "type": "resume_summary",
+      "title": "Resume Summary — Senior Full-Stack Engineer at Verdant Software",
+      "body": "Senior Software Engineer with 5+ years building production full-stack applications across TypeScript/React/Next.js, Python/FastAPI, and PostgreSQL. Proven track record shipping zero-to-one products at blockchain startups with distributed, async-first teams. Most recently led platform engineering at Rollup Labs (Ethereum Layer-2 infrastructure), where I owned the full stack from Solidity smart contracts to a Next.js operations dashboard. Deep PostgreSQL expertise: complex query optimization, Alembic migrations, pgvector for vector similarity search. Comfortable with Docker, GitHub Actions CI/CD, and AWS. Seeking a senior or lead role where I can combine technical ownership with meaningful product impact on a small, high-trust remote team.",
+      "status": "needs_review",
+      "version": 1,
+      "tone": "confident",
+      "length": "short",
+      "review_notes": "Tweak to emphasize sustainability domain interest."
+    }
+  ]
+}

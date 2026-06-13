@@ -1,0 +1,57 @@
+# ApplyPilot — integration test stack
+# Spins up an isolated Postgres (with pgvector) and runs the backend
+# integration test suite against it in fake/deterministic provider mode.
+#
+# Usage:
+#   docker compose -f infra/docker/docker-compose.test.yml up \
+#     --build --abort-on-container-exit --exit-code-from api_test
+#
+# Build context for image builds is the repo root (../.. from this file).
+
+services:
+  postgres_test:
+    image: pgvector/pgvector:pg16
+    container_name: applypilot-postgres-test
+    environment:
+      POSTGRES_USER: applypilot
+      POSTGRES_PASSWORD: applypilot
+      POSTGRES_DB: applypilot_test
+    ports:
+      # Host 5433 -> container 5432 so it never clashes with the dev Postgres.
+      - "5433:5432"
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U applypilot -d applypilot_test"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+    networks:
+      - applypilot_test
+
+  api_test:
+    build:
+      context: ../..
+      dockerfile: services/api/Dockerfile
+    image: applypilot-api:local
+    container_name: applypilot-api-test
+    command: ["pytest", "tests/integration", "-v"]
+    environment:
+      APP_ENV: test
+      TEST_MODE: "true"
+      LLM_PROVIDER: fake
+      EMBEDDING_PROVIDER: fake
+      # postgres_test listens on 5432 inside the docker network.
+      DATABASE_URL: postgresql+psycopg://applypilot:applypilot@postgres_test:5432/applypilot_test
+      REDIS_URL: redis://localhost:6379/0
+      STORAGE_DRIVER: local
+    depends_on:
+      postgres_test:
+        condition: service_healthy
+    networks:
+      - applypilot_test
+
+networks:
+  applypilot_test:
+    driver: bridge
